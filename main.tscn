@@ -1,11 +1,38 @@
-[gd_scene format=3 uid="uid://uwwjs4wr2a2s"]
+[gd_scene format=4 uid="uid://uwwjs4wr2a2s"]
 
 [ext_resource type="Texture2D" uid="uid://d007gu4a0dlx4" path="res://Player.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dgij34p1xe14e" path="res://images/tile_0103.png" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(352, 492.3076)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
+texture = ExtResource("2_0xm2m")
+margins = Vector2i(0, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_h2yge")
 
 [node name="Node" type="Node" unique_id=1764787965]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1062229679]
+position = Vector2(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1013150343]
-position = Vector2(228, 300)
+position = Vector2(-162.99997, 18)
+scale = Vector2(0.21875, 0.24375)
 texture = ExtResource("1_ig7tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1163585105]
+position = Vector2(-173, 6.0000153)
+scale = Vector2(0.21875, 0.24375)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1794587934]
+position = Vector2(1, 0)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAQAAIAAAAAAAAAAAARAAIAAAAAAAAAAAASAAIAAAAAAAAAAAATAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_1bvp3")
