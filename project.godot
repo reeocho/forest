@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="forest"
+run/main_scene="uid://uwwjs4wr2a2s"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
@@ -44,8 +45,10 @@ D={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=500.0
 
 [rendering]
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+camera/default_gravity=980.0
